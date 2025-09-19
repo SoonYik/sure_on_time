@@ -19,7 +19,8 @@ class AddPage extends StatefulWidget {
 }
 
 class _AddPageState extends State<AddPage> {
-  String selectedValue = 'Normal';
+  String selectedPriority = 'Normal';
+  String selectedStatus = 'En Route';
 
   @override
   Widget build(BuildContext context) {
@@ -153,14 +154,14 @@ class _AddPageState extends State<AddPage> {
                     const Text('Priority: ', style: TextStyle(fontWeight: FontWeight.bold)),
                     const SizedBox(width: 20),
                     DropdownButton<String>(
-                      value: selectedValue,
+                      value: selectedPriority,
                       items: ['Normal', 'Urgent']
                           .map((String value) => DropdownMenuItem<String>(
                         value: value,
                         child: Text(value),
                       )).toList(), onChanged: (newValue) {
                         setState(() {
-                          selectedValue = newValue!;
+                          selectedPriority = newValue!;
                         });
                       },
                     ),
@@ -174,7 +175,9 @@ class _AddPageState extends State<AddPage> {
                     destinationCtrl.text,
                     DateFormat('yyyy-MM-dd').format(DateTime.now()),
                     dateReqCtrl.text,
-                    selectedValue,
+                    selectedPriority,
+                    selectedStatus,
+                    null, null,
                   );
                   context.read<ItemProvider>().add(newItem);
                   idCtrl.clear();

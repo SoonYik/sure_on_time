@@ -5,14 +5,11 @@ class Item{
   String dateOrder;
   String dateReq;
   String priority;
+  String status;
+  String? image;
+  String? name;
 
-  Item(this.id, this.quantity, this.destination, this.dateOrder, this.dateReq, this.priority);
-  int get partID => id;
-  int get partQuantity => quantity;
-  String get partName => destination;
-  String get partOrder => dateOrder;
-  String get partReq => dateReq;
-  String get partPriority => priority;
+  Item(this.id, this.quantity, this.destination, this.dateOrder, this.dateReq, this.priority, this.status, this.image, this.name);
 
   @override
   String toString() {
